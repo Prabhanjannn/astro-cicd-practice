@@ -1,11 +1,49 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const projectName = "Astro CI/CD Practice";
+const skills = ["Astro.js", "GitHub Actions", "CI/CD", "Git Branching"];
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>{projectName}</title>
+	</head>
+	<body>
+		<main>
+			<h1>Welcome to {projectName}</h1>
+			<p>This static site is built with Astro and deployed automatically via GitHub Actions.</p>
+
+			<h2>Skills practiced</h2>
+			<ul>
+				{skills.map((skill) => (
+					<li>{skill}</li>
+				))}
+			</ul>
+
+			<p class="footer">Last deployed via the <code>dev → main</code> CI/CD pipeline.</p>
+		</main>
+
+		<style>
+			body {
+				font-family: system-ui, sans-serif;
+				max-width: 700px;
+				margin: 4rem auto;
+				padding: 0 1.5rem;
+				color: #1a1a1a;
+				background: #fafafa;
+			}
+			h1 {
+				color: #2d3748;
+			}
+			ul {
+				line-height: 1.8;
+			}
+			.footer {
+				margin-top: 2rem;
+				color: #666;
+				font-size: 0.9rem;
+			}
+		</style>
+	</body>
+</html>
